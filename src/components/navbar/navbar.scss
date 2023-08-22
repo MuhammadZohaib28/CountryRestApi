@@ -1,0 +1,37 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  // border: 1px solid red;
+  padding: 1rem 3rem;
+  background-color: #faffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+}
+
+#dark .navbar {
+  background-color: black;
+  color: rgb(255, 255, 255);
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    // border: 1px solid red;
+    padding: 0.51rem 2rem;
+    background-color: #faffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+
+
+    h1{
+        font-size: 1.2rem;
+    }
+  }
+}
