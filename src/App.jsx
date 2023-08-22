@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/footer/Footer";
-// import Countries from "./components/countries/Countries";
+import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 
 const Layout = () => {
