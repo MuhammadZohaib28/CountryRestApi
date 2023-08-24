@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
+import Country from "./pages/country/Country";
 
 const Layout = () => {
   const [theme, setTheme] = useState("light");
@@ -29,8 +30,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/country/:countryName",
-        element: <span>Hello World</span>,
+        path: "/country/:name",
+        element: <Country />,
       },
     ],
   },

@@ -116,9 +116,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./countries.scss";
+import { Link } from "react-router-dom";
 
-const Countries = () => {
+const Countries = ({ query }) => {
   const [countries, setCountries] = useState([]);
+
   useEffect(() => {
     let isCancelled = false;
     const fetchdata = async () => {
@@ -140,33 +142,40 @@ const Countries = () => {
   return (
     <>
       <div className="countries">
-        {countries.map((country) => {
-          return (
-            <div className="countrycard">
-              <div className="flagcontainer">
-                <img src={country.flags.svg} alt={country.flags.alt} />
+        {countries
+          .filter((country) =>
+            country.name.common.toLowerCase().includes(query)
+          )
+          .map((country) => {
+            return (
+              <div className="countrycard">
+                <div className="flagcontainer">
+                  <img src={country.flags.svg} alt={country.flags.alt} />
+                </div>
+
+                <div className="info">
+                  <div className="name">
+                    <h1>{country.name.common}</h1>
+                  </div>
+
+                  <div className="population">
+                    <span>
+                      Population: {country.population.toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="continent">
+                    <span>Continent: {country.region}</span>
+                  </div>
+
+                  <div className="capital">
+                    <span>Capital: {country.capital?.[0]}</span>
+                  </div>
+                </div>
+                <Link to={`/country/${country.name.common}`}>Learn More</Link>
               </div>
-
-              <div className="info">
-                <div className="name">
-                  <h1>{country.name.common}</h1>
-                </div>
-
-                <div className="population">
-                  <span>Population: {country.population}</span>
-                </div>
-
-                <div className="continent">
-                  <span>Continent: {country.region}</span>
-                </div>
-
-                <div className="capital">
-                  <span>Capital: {country.capital}</span>
-                </div>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </>
   );

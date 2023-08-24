@@ -1,6 +1,6 @@
 import React from "react";
 import "./searchfilter.scss";
-const Filter = () => {
+const Filter = ({ setQuery }) => {
   return (
     <div className="searchfilter">
       <form className="search">
@@ -9,6 +9,7 @@ const Filter = () => {
           name="search"
           id="search"
           placeholder="Search for a country"
+          onChange={(e) => setQuery(e.target.value.toLowerCase())}
         />
       </form>
 
