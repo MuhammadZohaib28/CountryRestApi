@@ -172,7 +172,7 @@ const Countries = ({ query }) => {
                     <span>Capital: {country.capital?.[0]}</span>
                   </div>
                 </div>
-                <Link to={`/country/${country.name.common}`}>Learn More</Link>
+                {/* <Link to={`/country/${country.name.common}`}>Learn More</Link> */}
               </div>
             );
           })}
